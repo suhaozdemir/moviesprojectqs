@@ -42,9 +42,12 @@ class MainActivity : AppCompatActivity() {
 
         my_recycler_view.layoutManager = LinearLayoutManager(this)
         my_recycler_view.addItemDecoration(DividerItemDecoration(this, OrientationHelper.VERTICAL))
+
+
+
         my_recycler_view.adapter = myAdapter
-        for (i in 1..400) {
-            val urlLink="https://api.themoviedb.org/3/movie/top_rated?api_key=9cb322b1006fcfd1800a689018e6a7d4&page="+i
+        for (i in 0..1) {
+            val urlLink="https://api.themoviedb.org/3/movie/now_playing?api_key=9cb322b1006fcfd1800a689018e6a7d4&page="+i
 
             AndroidNetworking.initialize(this)
             AndroidNetworking.get(urlLink)
@@ -66,10 +69,98 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+
         bottomBarsetup()
+
+        btnTopRated.setOnClickListener {
+
+
+            dataList.clear()
+            my_recycler_view?.adapter?.notifyDataSetChanged()
+            for (i in 0..1) {
+                val urlLink="https://api.themoviedb.org/3/movie/top_rated?api_key=9cb322b1006fcfd1800a689018e6a7d4&page="+i
+
+                AndroidNetworking.initialize(this)
+                AndroidNetworking.get(urlLink)
+                    .build()
+                    .getAsObject(Req::class.java, object : ParsedRequestListener<Req> {
+                        override fun onResponse(response: Req?) {
+                            if (response != null) {
+                                dataList.addAll(response.results)
+
+                            }
+                            myAdapter.notifyDataSetChanged()
+                        }
+
+                        override fun onError(anError: ANError?) {
+                        }
+
+
+                    })
+
+            }
+
+        }
+
+        btnPopular.setOnClickListener {
+
+            dataList.clear()
+            my_recycler_view?.adapter?.notifyDataSetChanged()
+            for (i in 0..1) {
+                val urlLink="https://api.themoviedb.org/3/movie/popular?api_key=9cb322b1006fcfd1800a689018e6a7d4&page="+i
+
+                AndroidNetworking.initialize(this)
+                AndroidNetworking.get(urlLink)
+                    .build()
+                    .getAsObject(Req::class.java, object : ParsedRequestListener<Req> {
+                        override fun onResponse(response: Req?) {
+                            if (response != null) {
+                                dataList.addAll(response.results)
+
+                            }
+                            myAdapter.notifyDataSetChanged()
+                        }
+
+                        override fun onError(anError: ANError?) {
+                        }
+
+
+                    })
+
+            }
+        }
+        btnUpComing.setOnClickListener {
+
+            dataList.clear()
+            my_recycler_view?.adapter?.notifyDataSetChanged()
+            for (i in 0..1) {
+                val urlLink="https://api.themoviedb.org/3/movie/upcoming?api_key=9cb322b1006fcfd1800a689018e6a7d4&page="+i
+
+                AndroidNetworking.initialize(this)
+                AndroidNetworking.get(urlLink)
+                    .build()
+                    .getAsObject(Req::class.java, object : ParsedRequestListener<Req> {
+                        override fun onResponse(response: Req?) {
+                            if (response != null) {
+                                dataList.addAll(response.results)
+
+                            }
+                            myAdapter.notifyDataSetChanged()
+                        }
+
+                        override fun onError(anError: ANError?) {
+                        }
+
+
+                    })
+
+            }
+        }
+
 
 
     }
+
     /*fun detayclick(view: View){
         val filmisim = user_fullname.text
         val filmpuan = vote_rateDetay.text
@@ -101,7 +192,5 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
-
-
 
 }
