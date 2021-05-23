@@ -28,7 +28,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         //Label ile register ekranına gitme
-        txtRegister.setOnClickListener {
+        btnSignUp.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
             finish()
@@ -36,7 +36,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     //---------GİRİŞ İŞLEMLERİ---------
-    fun loginFun(view: View){
+    fun loginFun(view : View){
         val email = txtEmail.text.toString()
         val password = txtPassword.text.toString()
 
@@ -45,7 +45,7 @@ class HomeActivity : AppCompatActivity() {
 
                 val loggedUser = auth.currentUser?.email.toString()
                 Toast.makeText(this, "Hoşgeldin: ${loggedUser}",Toast.LENGTH_LONG).show()
-                progressBar.visibility = View.VISIBLE
+                //progressBar.visibility = View.VISIBLE
                 val intent = Intent(this,MainActivity::class.java)
                 startActivity(intent)
                 finish()
@@ -53,5 +53,9 @@ class HomeActivity : AppCompatActivity() {
         }.addOnFailureListener{exception ->
             Toast.makeText(this,exception.localizedMessage,Toast.LENGTH_LONG).show()
         }
+    }
+    fun onClickHelp(view: View){
+        val intent = Intent(applicationContext,HelpActivity::class.java)
+        startActivity(intent)
     }
 }
