@@ -19,6 +19,7 @@ class activityProfile : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         bottomBarsetup()
+
     }
 
 

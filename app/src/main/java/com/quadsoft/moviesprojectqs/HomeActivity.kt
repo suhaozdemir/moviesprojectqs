@@ -23,11 +23,11 @@ class HomeActivity : AppCompatActivity() {
         if(currentUser != null){
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
-            Toast.makeText(this, "Tekrar Hoşgeldin: ${currentUser.email.toString()}",Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Welcome ${currentUser.email.toString()}",Toast.LENGTH_LONG).show()
             finish()
         }
 
-        //Label ile register ekranına gitme
+        //Registera dönüş
         btnSignUp.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
@@ -44,7 +44,7 @@ class HomeActivity : AppCompatActivity() {
             if(task.isSuccessful){
 
                 val loggedUser = auth.currentUser?.email.toString()
-                Toast.makeText(this, "Hoşgeldin: ${loggedUser}",Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Welcome ${loggedUser}",Toast.LENGTH_LONG).show()
                 //progressBar.visibility = View.VISIBLE
                 val intent = Intent(this,MainActivity::class.java)
                 startActivity(intent)

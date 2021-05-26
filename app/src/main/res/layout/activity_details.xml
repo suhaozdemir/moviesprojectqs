@@ -85,10 +85,10 @@
         android:layout_marginBottom="15dp"
         android:text="Daha sonra izla"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button3" />
+        app:layout_constraintEnd_toStartOf="@+id/btLike" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btLike"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"

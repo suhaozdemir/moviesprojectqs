@@ -11,14 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VeriÇekmeDeneme2">
-        <activity android:name="com.quadsoft.moviesprojectqs.HelpActivity" />
-        <activity android:name="com.quadsoft.moviesprojectqs.DetailsActivity" />
-        <activity android:name="com.quadsoft.moviesprojectqs.EditProfileActivity" />
-        <activity android:name="com.quadsoft.moviesprojectqs.RegisterActivity" />
-        <activity android:name="com.quadsoft.moviesprojectqs.MainActivity" />
-        <activity android:name="com.quadsoft.moviesprojectqs.activityProfile" />
-        <activity android:name="com.quadsoft.moviesprojectqs.arsivActivity" />
-        <activity android:name="com.quadsoft.moviesprojectqs.HomeActivity">
+        <activity android:name=".FavoritesActivity"></activity>
+        <activity android:name=".HelpActivity" />
+        <activity android:name=".DetailsActivity" />
+        <activity android:name=".EditProfileActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".activityProfile" />
+        <activity android:name=".arsivActivity" />
+        <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

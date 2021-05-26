@@ -17,8 +17,6 @@ import kotlin.collections.ArrayList
 class MainActivity : AppCompatActivity() {
 
     val dataList: MutableList<Result> = mutableListOf()
-    val filmList = ArrayList<String>()
-
 
     lateinit var myAdapter: MyAdapter
 
@@ -29,12 +27,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         myAdapter = MyAdapter(dataList)
 
-
-
         my_recycler_view.layoutManager = LinearLayoutManager(this)
         my_recycler_view.addItemDecoration(DividerItemDecoration(this, OrientationHelper.VERTICAL))
-
-
 
         my_recycler_view.adapter = myAdapter
         for (i in 0..1) {
@@ -59,7 +53,6 @@ class MainActivity : AppCompatActivity() {
                 })
 
         }
-
 
         bottomBarsetup()
 
@@ -152,17 +145,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    /*fun detayclick(view: View){
-        val filmisim = user_fullname.text
-        val filmpuan = vote_rateDetay.text
-        val filmaciklama = aciklama.text
-        val intent3 = Intent(this,detayActivity::class.java)
-        intent3.putExtra("KeyFilmAdi",filmisim)
-        intent3.putExtra("KeyPuan",filmpuan)
-        intent3.putExtra("KeyAciklama",filmaciklama)
-        startActivity(intent3)
-    }*/
-
 
     private fun bottomBarsetup() {
         nav_view.setOnNavigationItemSelectedListener{
@@ -183,5 +165,6 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
 
 }

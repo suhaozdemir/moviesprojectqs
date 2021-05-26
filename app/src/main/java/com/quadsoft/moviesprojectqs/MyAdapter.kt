@@ -16,7 +16,7 @@ class MyAdapter(private val dataList: MutableList<Result>) : RecyclerView.Adapte
     private lateinit var context : Context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         context = parent.context
-        return  MyHolder(LayoutInflater.from(context).inflate(R.layout.item_view,parent,false))
+        return MyHolder(LayoutInflater.from(context).inflate(R.layout.item_view,parent,false))
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
@@ -55,7 +55,7 @@ class MyAdapter(private val dataList: MutableList<Result>) : RecyclerView.Adapte
             val filmresim = "https://image.tmdb.org/t/p/w500" + data2.posterPath
             val intent3= Intent(context,DetailsActivity::class.java)
             intent3.putExtra("KeyFilmAdi",filmisim)
-            intent3.putExtra("KeyPuan",filmpuan)
+            intent3.putExtra("KeyPuan",filmpuan.toString())
             intent3.putExtra("KeyAciklama",filmaciklama)
             intent3.putExtra("KeyResim",filmresim)
             context.startActivity(intent3)

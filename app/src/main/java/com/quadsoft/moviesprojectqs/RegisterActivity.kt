@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
@@ -34,11 +35,14 @@ class RegisterActivity : AppCompatActivity() {
         val email = txtEmail.text.toString()
         val password = txtPassword.text.toString()
 
+
         auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener { task ->
             //async
             if(task.isSuccessful){
                 //next activity
-                val user = User(username,email,password)
+                val currentUser = auth.currentUser
+                val id = currentUser!!.uid
+                val user = User(username,email,password,id)
                 FirebaseDatabase.getInstance().getReference("Users")
                     .child(FirebaseAuth.getInstance().currentUser!!.uid)
                     .setValue(user)
