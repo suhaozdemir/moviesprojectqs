@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+<<<<<<< HEAD
+=======
+    <color name="blue">#3CB9FC</color>
+    <color name="blue_700">#1F2338</color>
+    <color name="transparent">#00000000</color>
+    <color name="purple">#7934D3</color>
+>>>>>>> parent of 0379630 (a)
 </resources>

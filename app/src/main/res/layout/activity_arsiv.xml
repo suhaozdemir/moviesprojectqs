@@ -11,15 +11,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+<<<<<<< HEAD
 
         android:layout_marginTop="550dp"
+=======
+>>>>>>> parent of 0379630 (a)
         app:headerLayout="@layout/navigation_header"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+<<<<<<< HEAD
         app:layout_constraintTop_toTopOf="parent"
+=======
+>>>>>>> parent of 0379630 (a)
         app:menu="@menu/navigation_menu">
 
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
+<<<<<<< HEAD
+=======
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/archiveRecycler"
+        android:layout_width="409dp"
+        android:layout_height="544dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        tools:listitem="@layout/item_view"
+        tools:ignore="MissingConstraints" />
+
+>>>>>>> parent of 0379630 (a)
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,7 +8,11 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
+<<<<<<< HEAD
         applicationId "com.cengizhan.veriekmedeneme2"
+=======
+        applicationId "com.quadsoft.moviesprojectqs"
+>>>>>>> parent of 0379630 (a)
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 1

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+=======
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> parent of 0379630 (a)
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -20,11 +25,26 @@
         android:id="@+id/my_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+=======
+    tools:context=".MainActivity">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/my_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="47dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnPopular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+>>>>>>> parent of 0379630 (a)
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
+<<<<<<< HEAD
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -32,8 +52,53 @@
         app:headerLayout="@layout/navigation_header"
         app:menu="@menu/navigation_menu"
         tools:layout_editor_absoluteY="545dp">
+=======
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="2dp"
+        app:headerLayout="@layout/navigation_header"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnUpComing"
+        app:menu="@menu/navigation_menu">
+>>>>>>> parent of 0379630 (a)
 
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
+<<<<<<< HEAD
 </LinearLayout>
+=======
+    <Button
+        android:id="@+id/btnTopRated"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Top Rated"
+        app:layout_constraintBottom_toTopOf="@+id/btnPopular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnPopular"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Popular Movies"
+        app:layout_constraintBottom_toTopOf="@+id/btnUpComing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_recycler_view" />
+
+    <Button
+        android:id="@+id/btnUpComing"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Up Coming Movies"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnPopular" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+>>>>>>> parent of 0379630 (a)
