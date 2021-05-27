@@ -31,14 +31,10 @@ class MyAdapter(private val dataList: MutableList<Result>) : RecyclerView.Adapte
         val o = "${data.overview} "
 
 
-
         vote.text=v
         overview.text=o
         userFullnameTextView.text=fulName
         val resimyolu="https://image.tmdb.org/t/p/w500"+data.posterPath
-        val resim=holder.itemView.resimurl
-        resim.text=resimyolu
-
 
         Picasso.get()
             .load(resimyolu)
