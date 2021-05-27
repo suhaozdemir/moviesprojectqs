@@ -1,6 +1,2 @@
 include ':app'
-<<<<<<< HEAD
-rootProject.name = "VeriÇekmeDeneme2"
-=======
 rootProject.name = "MoviesProjectQS"
->>>>>>> parent of 0379630 (a)

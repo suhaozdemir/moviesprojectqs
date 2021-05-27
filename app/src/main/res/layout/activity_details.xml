@@ -85,17 +85,10 @@
         android:layout_marginBottom="15dp"
         android:text="Daha sonra izla"
         app:layout_constraintBottom_toBottomOf="parent"
-<<<<<<< HEAD
-        app:layout_constraintEnd_toStartOf="@+id/button3" />
-
-    <Button
-        android:id="@+id/button3"
-=======
         app:layout_constraintEnd_toStartOf="@+id/btLike" />
 
     <Button
         android:id="@+id/btLike"
->>>>>>> parent of 0379630 (a)
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"

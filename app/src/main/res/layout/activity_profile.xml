@@ -11,23 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-<<<<<<< HEAD
-        android:layout_marginTop="550dp"
-=======
->>>>>>> parent of 0379630 (a)
         app:headerLayout="@layout/navigation_header"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-<<<<<<< HEAD
-        app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/navigation_menu">
 
-
-=======
-        app:menu="@menu/navigation_menu">
-
->>>>>>> parent of 0379630 (a)
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

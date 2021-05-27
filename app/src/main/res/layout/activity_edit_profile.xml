@@ -11,11 +11,7 @@
         android:layout_width="134dp"
         android:layout_height="0dp"
         android:layout_marginTop="61dp"
-<<<<<<< HEAD
-        android:layout_marginBottom="55dp"
-=======
         android:layout_marginBottom="54dp"
->>>>>>> parent of 0379630 (a)
         android:text="kullanıcı adı"
         android:textSize="24dp"
         app:layout_constraintBottom_toTopOf="@+id/edtxt_Username"
@@ -28,11 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
-<<<<<<< HEAD
-        android:layout_marginBottom="20dp"
-=======
         android:layout_marginBottom="21dp"
->>>>>>> parent of 0379630 (a)
         android:ems="10"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/edtxt_Password"
@@ -44,26 +36,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="62dp"
-<<<<<<< HEAD
-        android:layout_marginBottom="34dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/bt_Update"
-=======
         android:layout_marginBottom="8dp"
         android:ems="10"
         app:layout_constraintBottom_toTopOf="@+id/newPass"
->>>>>>> parent of 0379630 (a)
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtxt_Email" />
 
     <EditText
-<<<<<<< HEAD
-        android:id="@+id/edtxt_Username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="53dp"
-=======
         android:id="@+id/newPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -78,33 +57,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="52dp"
->>>>>>> parent of 0379630 (a)
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
         app:layout_constraintBottom_toTopOf="@+id/edtxt_Email"
-<<<<<<< HEAD
-        app:layout_constraintEnd_toEndOf="@+id/txtShowName"
-        app:layout_constraintStart_toStartOf="@+id/edtxt_Password"
-=======
         app:layout_constraintEnd_toEndOf="@+id/edtxt_Email"
         app:layout_constraintStart_toStartOf="@+id/edtxt_Email"
->>>>>>> parent of 0379630 (a)
         app:layout_constraintTop_toBottomOf="@+id/txtShowName" />
 
     <Button
         android:id="@+id/bt_Update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:layout_marginStart="35dp"
-        android:layout_marginBottom="132dp"
-        android:onClick="updateFun"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/edtxt_Password"
-        app:layout_constraintTop_toBottomOf="@+id/edtxt_Password" />
-=======
 
         android:layout_marginStart="117dp"
         android:layout_marginBottom="57dp"
@@ -112,7 +76,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newPass" />
->>>>>>> parent of 0379630 (a)
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
