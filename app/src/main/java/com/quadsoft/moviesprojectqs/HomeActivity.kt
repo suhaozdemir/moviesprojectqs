@@ -21,7 +21,7 @@ class HomeActivity : AppCompatActivity() {
         //---------GİRİŞ YAPMIŞ VE LOGOUT YAPMAYAN KULLANICI---------
         val currentUser = auth.currentUser
         if(currentUser != null){
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this,FirstActivity::class.java)
             startActivity(intent)
             Toast.makeText(this, "Welcome ${currentUser.email.toString()}",Toast.LENGTH_LONG).show()
             finish()
@@ -46,7 +46,7 @@ class HomeActivity : AppCompatActivity() {
                 val loggedUser = auth.currentUser?.email.toString()
                 Toast.makeText(this, "Welcome ${loggedUser}",Toast.LENGTH_LONG).show()
                 //progressBar.visibility = View.VISIBLE
-                val intent = Intent(this,MainActivity::class.java)
+                val intent = Intent(this,FirstActivity::class.java)
                 startActivity(intent)
                 finish()
             }

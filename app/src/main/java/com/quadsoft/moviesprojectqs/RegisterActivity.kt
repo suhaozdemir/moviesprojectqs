@@ -41,8 +41,7 @@ class RegisterActivity : AppCompatActivity() {
             if(task.isSuccessful){
                 //next activity
                 val currentUser = auth.currentUser
-                val id = currentUser!!.uid
-                val user = User(username,email,password,id)
+                val user = User(username,email,password)
                 FirebaseDatabase.getInstance().getReference("Users")
                     .child(FirebaseAuth.getInstance().currentUser!!.uid)
                     .setValue(user)

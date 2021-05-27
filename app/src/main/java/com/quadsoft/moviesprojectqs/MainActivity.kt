@@ -1,8 +1,16 @@
 package com.quadsoft.moviesprojectqs
 
+import android.content.Context
 import android.content.Intent
+import android.graphics.ColorSpace
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.OrientationHelper
@@ -11,7 +19,11 @@ import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.ParsedRequestListener
 import com.quadsoft.moviesprojectqs.model.Req
 import com.quadsoft.moviesprojectqs.model.Result
+import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.item_view.*
+import java.util.*
 import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
@@ -29,142 +41,26 @@ class MainActivity : AppCompatActivity() {
 
         my_recycler_view.layoutManager = LinearLayoutManager(this)
         my_recycler_view.addItemDecoration(DividerItemDecoration(this, OrientationHelper.VERTICAL))
-
         my_recycler_view.adapter = myAdapter
-        for (i in 0..1) {
-            val urlLink="https://api.themoviedb.org/3/movie/now_playing?api_key=9cb322b1006fcfd1800a689018e6a7d4&page="+i
 
-            AndroidNetworking.initialize(this)
-            AndroidNetworking.get(urlLink)
-                .build()
-                .getAsObject(Req::class.java, object : ParsedRequestListener<Req> {
-                    override fun onResponse(response: Req?) {
-                        if (response != null) {
-                            dataList.addAll(response.results)
+        val urlLink = intent.getStringExtra("Key")
 
-                        }
-                        myAdapter.notifyDataSetChanged()
+        AndroidNetworking.initialize(this)
+        AndroidNetworking.get(urlLink)
+            .build()
+            .getAsObject(Req::class.java, object : ParsedRequestListener<Req> {
+                override fun onResponse(response: Req?) {
+                    if (response != null) {
+                        dataList.addAll(response.results)
+
                     }
-
-                    override fun onError(anError: ANError?) {
-                    }
-
-
-                })
-
-        }
-
-        bottomBarsetup()
-
-        btnTopRated.setOnClickListener {
-
-
-            dataList.clear()
-            my_recycler_view?.adapter?.notifyDataSetChanged()
-            for (i in 0..1) {
-                val urlLink="https://api.themoviedb.org/3/movie/top_rated?api_key=9cb322b1006fcfd1800a689018e6a7d4&page="+i
-
-                AndroidNetworking.initialize(this)
-                AndroidNetworking.get(urlLink)
-                    .build()
-                    .getAsObject(Req::class.java, object : ParsedRequestListener<Req> {
-                        override fun onResponse(response: Req?) {
-                            if (response != null) {
-                                dataList.addAll(response.results)
-
-                            }
-                            myAdapter.notifyDataSetChanged()
-                        }
-
-                        override fun onError(anError: ANError?) {
-                        }
-
-
-                    })
-
-            }
-
-        }
-
-        btnPopular.setOnClickListener {
-
-            dataList.clear()
-            my_recycler_view?.adapter?.notifyDataSetChanged()
-            for (i in 0..1) {
-                val urlLink="https://api.themoviedb.org/3/movie/popular?api_key=9cb322b1006fcfd1800a689018e6a7d4&page="+i
-
-                AndroidNetworking.initialize(this)
-                AndroidNetworking.get(urlLink)
-                    .build()
-                    .getAsObject(Req::class.java, object : ParsedRequestListener<Req> {
-                        override fun onResponse(response: Req?) {
-                            if (response != null) {
-                                dataList.addAll(response.results)
-
-                            }
-                            myAdapter.notifyDataSetChanged()
-                        }
-
-                        override fun onError(anError: ANError?) {
-                        }
-
-
-                    })
-
-            }
-        }
-        btnUpComing.setOnClickListener {
-
-            dataList.clear()
-            my_recycler_view?.adapter?.notifyDataSetChanged()
-            for (i in 0..1) {
-                val urlLink="https://api.themoviedb.org/3/movie/upcoming?api_key=9cb322b1006fcfd1800a689018e6a7d4&page="+i
-
-                AndroidNetworking.initialize(this)
-                AndroidNetworking.get(urlLink)
-                    .build()
-                    .getAsObject(Req::class.java, object : ParsedRequestListener<Req> {
-                        override fun onResponse(response: Req?) {
-                            if (response != null) {
-                                dataList.addAll(response.results)
-
-                            }
-                            myAdapter.notifyDataSetChanged()
-                        }
-
-                        override fun onError(anError: ANError?) {
-                        }
-
-
-                    })
-
-            }
-        }
-
-
-
-    }
-
-
-    private fun bottomBarsetup() {
-        nav_view.setOnNavigationItemSelectedListener{
-
-            when(it.itemId){
-                R.id.arsiv -> {
-                    val intent = Intent(this,arsivActivity::class.java)
-                    startActivity(intent)
-                    finish()
+                    myAdapter.notifyDataSetChanged()
                 }
-                R.id.profil -> {
-                    val intent2 = Intent(this,activityProfile::class.java)
-                    startActivity(intent2)
-                    finish()
+
+                override fun onError(anError: ANError?) {
                 }
-            }
-            true
 
-        }
+
+            })
     }
-
-
 }

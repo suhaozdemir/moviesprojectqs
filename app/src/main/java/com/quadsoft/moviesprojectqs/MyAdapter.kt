@@ -1,16 +1,16 @@
 package com.quadsoft.moviesprojectqs
 
 
-import com.quadsoft.moviesprojectqs.model.Result
-
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.quadsoft.moviesprojectqs.model.Result
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_view.view.*
-import kotlinx.android.synthetic.main.item_view.view.vote_rateDetay
+
 
 class MyAdapter(private val dataList: MutableList<Result>) : RecyclerView.Adapter<MyHolder>() {
     private lateinit var context : Context
@@ -55,6 +55,7 @@ class MyAdapter(private val dataList: MutableList<Result>) : RecyclerView.Adapte
             intent3.putExtra("KeyAciklama",filmaciklama)
             intent3.putExtra("KeyResim",filmresim)
             context.startActivity(intent3)
+            //(context as Activity).finish()
 
         }
 

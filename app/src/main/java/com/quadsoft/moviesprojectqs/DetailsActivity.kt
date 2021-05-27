@@ -1,5 +1,6 @@
 package com.quadsoft.moviesprojectqs
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -49,6 +50,10 @@ class DetailsActivity : AppCompatActivity() {
             btLike.setText("Favorilerde")
         }
 
+        btRemove.setOnClickListener{
+            deleteMovie()
+        }
+
 
     }
 
@@ -69,7 +74,7 @@ class DetailsActivity : AppCompatActivity() {
             val reference = FirebaseDatabase.getInstance().getReference("Movies")
                 .child(FirebaseAuth.getInstance().currentUser!!.uid)
 
-            val id = reference.push().key
+            val id = name
 
             val movie = UserMovies(id as String,
                 name as String,
@@ -79,6 +84,37 @@ class DetailsActivity : AppCompatActivity() {
             reference.child(id).setValue(movie)
             arrayList.add(name)
         }
+    }
+
+    fun deleteMovie(){
+        val name   = detayİsim.text
+        val rating = voteDetay.text
+        val detail = detayAciklama.text
+
+        val imagePath = intent.getStringExtra("KeyResim")
+        Picasso.get()
+            .load(imagePath)
+            .into(avatarDetay)
+        val path = imagePath
+
+       val reference = FirebaseDatabase.getInstance().getReference("Movies")
+           .child(FirebaseAuth.getInstance().currentUser!!.uid)
+
+            val id = name
+
+            val movie = UserMovies(id as String,
+                name as String,
+                rating as String,
+                detail as String,
+                path as String)
+            reference.child(id).removeValue()
+
+        val intent = Intent(this, arsivActivity::class.java)
+        startActivity(intent)
+        finish()
+
+
+
     }
 }
 

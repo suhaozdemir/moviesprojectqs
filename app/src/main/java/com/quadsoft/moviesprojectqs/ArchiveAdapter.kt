@@ -27,7 +27,6 @@ class ArchiveAdapter(private val movieList: ArrayList<UserMovies>) : RecyclerVie
         holder.movieDetails.text = currentmovie.details
         holder.movieRating.text = currentmovie.rating
 
-
        val movieImgView = holder.itemView.user_avatar
 
         val imgPath = movieList.get(position).imgpath

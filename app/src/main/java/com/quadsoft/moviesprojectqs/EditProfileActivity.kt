@@ -24,53 +24,44 @@ class EditProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_edit_profile)
 
         auth = FirebaseAuth.getInstance()
+        getuserData()
 
-
-        reference.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val username = snapshot.child("username").getValue().toString()
-                val email = snapshot.child("email").getValue().toString()
-                val password = snapshot.child("password").getValue().toString()
-                edtxt_Email.setText(email)
-                edtxt_Username.setText(username)
-                txtShowName.setText(username)
-                edtxt_Password.setText(password)
-            }
-
-
-            override fun onCancelled(error: DatabaseError) {
-
-            }
-
-        })
         bt_Update.setOnClickListener {
-            changePass()
+            if (txtNewPass.text.isEmpty()) {
+                Toast.makeText(this, "Please fill all empty", Toast.LENGTH_SHORT).show()
+            } else {
+                changePass()
+            }
         }
     }
-
 
     private fun changePass() {
         val currentUser = auth.currentUser!!
         val credential = EmailAuthProvider
             .getCredential(currentUser.email!!, edtxt_Password.text.toString())
 
-        val newPass = newPass.text.toString()
-        val newMail = edtxt_Email.text.toString()
-        val newName = edtxt_Username.text.toString()
+        val newPass = txtNewPass.text
+        val newMail = edtxt_Email.text
+        val newName = edtxt_Username.text
 
+        if(newPass.length < 6)
+            Toast.makeText(this, "Password must be at least six characters", Toast.LENGTH_SHORT).show()
+        if(newPass == edtxt_Password.text)
+            Toast.makeText(this, "New password must be different from old password", Toast.LENGTH_SHORT).show()
+        else{
         currentUser.reauthenticate(credential)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
-                    Toast.makeText(this, "Auth Ok", Toast.LENGTH_SHORT).show()
-                    currentUser!!.updatePassword(newPass)
+                    currentUser!!.updatePassword(newPass.toString())
                         ?.addOnCompleteListener { task ->
                             if (task.isSuccessful) {
-                                currentUser!!.updateEmail(newMail)
+                                currentUser!!.updateEmail(newMail.toString())
                                 reference.child("email").setValue(newMail)
                                 reference.child("username").setValue(newName)
                                 reference.child("password").setValue(newPass)
-                                reference.child("id").child("deneme").setValue("merhaba")
-                                Toast.makeText(this, "Your password has been changed successfully.", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this,
+                                    "Your password has been changed successfully.",
+                                    Toast.LENGTH_SHORT).show()
                                 auth.signOut()
                                 val intent = Intent(this, HomeActivity::class.java)
                                 startActivity(intent)
@@ -80,6 +71,13 @@ class EditProfileActivity : AppCompatActivity() {
                 }
 
 
-            }
+            }}
+    }
+
+    fun getuserData(){
+        edtxt_Username.setText(intent.getStringExtra("username"))
+        edtxt_Email.setText(intent.getStringExtra("email"))
+        edtxt_Password.setText(intent.getStringExtra("password"))
     }
 }
+

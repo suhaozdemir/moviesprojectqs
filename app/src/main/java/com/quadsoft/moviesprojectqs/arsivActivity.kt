@@ -15,7 +15,7 @@ import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_arsiv.*
 import kotlinx.android.synthetic.main.activity_edit_profile.*
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.nav_view
+
 
 class arsivActivity : AppCompatActivity() {
 
@@ -88,7 +88,7 @@ class arsivActivity : AppCompatActivity() {
 
             when(it.itemId){
                 R.id.anasayfa -> {
-                    val intent = Intent(this,MainActivity::class.java)
+                    val intent = Intent(this,FirstActivity::class.java)
                     startActivity(intent)
                 }
                 R.id.profil -> {
