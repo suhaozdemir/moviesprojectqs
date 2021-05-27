@@ -41,16 +41,16 @@ class ArchiveAdapter(private val movieList: ArrayList<UserMovies>) : RecyclerVie
             val data2=movieList[position]
 
 
-            val filmisim = data2.name
-            val filmpuan = data2.rating
-            val filmaciklama = data2.details
-            val filmresim = data2.imgpath
-            val intent3= Intent(context,DetailsActivity::class.java)
-            intent3.putExtra("KeyFilmAdi",filmisim)
-            intent3.putExtra("KeyPuan",filmpuan.toString())
-            intent3.putExtra("KeyAciklama",filmaciklama)
-            intent3.putExtra("KeyResim",filmresim)
-            context.startActivity(intent3)
+            val movieName = data2.name
+            val movieRating = data2.rating
+            val movieDetails = data2.details
+            val movieImage = data2.imgpath
+            val it_mDetails= Intent(context,DetailsActivity::class.java)
+            it_mDetails.putExtra("it_movieName",movieName)
+            it_mDetails.putExtra("it_movieRating",movieRating.toString())
+            it_mDetails.putExtra("it_movieDetail",movieDetails)
+            it_mDetails.putExtra("it_movieImage",movieImage)
+            context.startActivity(it_mDetails)
 
         }
     }

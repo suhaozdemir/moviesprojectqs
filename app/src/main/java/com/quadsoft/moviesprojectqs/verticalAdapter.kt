@@ -43,16 +43,16 @@ class verticalAdapter (private val dataList2: MutableList<Result>) : RecyclerVie
 
 
 
-            val filmisim = data2.title
-            val filmpuan = data2.voteAverage
-            val filmaciklama = data2.overview
-            val filmresim = "https://image.tmdb.org/t/p/w500" + data2.posterPath
-            val intent3= Intent(context,DetailsActivity::class.java)
-            intent3.putExtra("KeyFilmAdi",filmisim)
-            intent3.putExtra("KeyPuan",filmpuan.toString())
-            intent3.putExtra("KeyAciklama",filmaciklama)
-            intent3.putExtra("KeyResim",filmresim)
-            context.startActivity(intent3)
+            val movieName = data2.title
+            val movieRating = data2.voteAverage
+            val movieDetails = data2.overview
+            val movieImage = "https://image.tmdb.org/t/p/w500" + data2.posterPath
+            val it_mDetails= Intent(context,DetailsActivity::class.java)
+            it_mDetails.putExtra("it_movieName",movieName)
+            it_mDetails.putExtra("it_movieRating",movieRating.toString())
+            it_mDetails.putExtra("it_movieDetail",movieDetails)
+            it_mDetails.putExtra("it_movieImage",movieImage)
+            context.startActivity(it_mDetails)
             //(context as Activity).finish()
 
         }

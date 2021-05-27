@@ -7,32 +7,32 @@
     tools:context=".DetailsActivity">
 
     <ImageView
-        android:id="@+id/avatarDetay"
+        android:id="@+id/img_dImage"
         android:layout_width="408dp"
         android:layout_height="0dp"
         android:layout_marginBottom="11dp"
-        app:layout_constraintBottom_toTopOf="@+id/detayİsim"
+        app:layout_constraintBottom_toTopOf="@+id/txt_dName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/detayİsim"
+        android:id="@+id/txt_dName"
         android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="26dp"
-        android:text="Film ismi"
+        android:text="Movie Name"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/detayAciklama"
-        app:layout_constraintEnd_toStartOf="@+id/voteDetay"
+        app:layout_constraintBottom_toTopOf="@+id/txt_dDetail"
+        app:layout_constraintEnd_toStartOf="@+id/txt_dRating"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avatarDetay" />
+        app:layout_constraintTop_toBottomOf="@+id/img_dImage" />
 
     <TextView
-        android:id="@+id/voteDetay"
+        android:id="@+id/txt_dRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -44,8 +44,8 @@
         android:textSize="27sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/detayİsim"
-        app:layout_constraintTop_toBottomOf="@+id/avatarDetay"
+        app:layout_constraintStart_toEndOf="@+id/txt_dName"
+        app:layout_constraintTop_toBottomOf="@+id/img_dImage"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
@@ -58,24 +58,24 @@
         android:layout_marginBottom="315dp"
         android:layout_weight="1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/voteDetay"
-        app:layout_constraintStart_toEndOf="@+id/detayİsim"
-        app:layout_constraintTop_toBottomOf="@+id/avatarDetay"
+        app:layout_constraintEnd_toStartOf="@+id/txt_dRating"
+        app:layout_constraintStart_toEndOf="@+id/txt_dName"
+        app:layout_constraintTop_toBottomOf="@+id/img_dImage"
         app:srcCompat="@drawable/star" />
 
     <TextView
-        android:id="@+id/detayAciklama"
+        android:id="@+id/txt_dDetail"
         android:layout_width="370dp"
         android:layout_height="220dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="8dp"
-        android:text="Film özet"
+        android:text="Movie Details"
         app:layout_constraintBottom_toTopOf="@+id/btRemove"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/voteDetay" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_dRating" />
 
     <Button
         android:id="@+id/btRemove"
@@ -83,19 +83,19 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="18dp"
         android:layout_marginBottom="15dp"
-        android:text="Daha sonra izla"
+        android:text="Remove"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btLike" />
+        app:layout_constraintEnd_toStartOf="@+id/btFavourite" />
 
     <Button
-        android:id="@+id/btLike"
+        android:id="@+id/btFavourite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="15dp"
-        android:text="Beğen"
+        android:text="Add"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/detayAciklama" />
+        app:layout_constraintEnd_toEndOf="@+id/txt_dDetail" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_edit_profile.*
+import kotlinx.android.synthetic.main.activity_register.*
 
 class EditProfileActivity : AppCompatActivity() {
 
@@ -24,11 +25,13 @@ class EditProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_edit_profile)
 
         auth = FirebaseAuth.getInstance()
+
+
         getuserData()
 
         bt_Update.setOnClickListener {
-            if (txtNewPass.text.isEmpty()) {
-                Toast.makeText(this, "Please fill all empty", Toast.LENGTH_SHORT).show()
+            if (txtNewPass.text.isEmpty() || edtxt_Username.text.isEmpty() || edtxt_Password.text.isEmpty()) {
+                Toast.makeText(this, "Please fill all empty fields!", Toast.LENGTH_SHORT).show()
             } else {
                 changePass()
             }
@@ -46,9 +49,7 @@ class EditProfileActivity : AppCompatActivity() {
 
         if(newPass.length < 6)
             Toast.makeText(this, "Password must be at least six characters", Toast.LENGTH_SHORT).show()
-        if(newPass == edtxt_Password.text)
-            Toast.makeText(this, "New password must be different from old password", Toast.LENGTH_SHORT).show()
-        else{
+
         currentUser.reauthenticate(credential)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
@@ -56,11 +57,10 @@ class EditProfileActivity : AppCompatActivity() {
                         ?.addOnCompleteListener { task ->
                             if (task.isSuccessful) {
                                 currentUser!!.updateEmail(newMail.toString())
-                                reference.child("email").setValue(newMail)
                                 reference.child("username").setValue(newName)
                                 reference.child("password").setValue(newPass)
                                 Toast.makeText(this,
-                                    "Your password has been changed successfully.",
+                                    "Your settings has been changed successfully.",
                                     Toast.LENGTH_SHORT).show()
                                 auth.signOut()
                                 val intent = Intent(this, HomeActivity::class.java)
@@ -71,7 +71,7 @@ class EditProfileActivity : AppCompatActivity() {
                 }
 
 
-            }}
+            }
     }
 
     fun getuserData(){
