@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/blue_700"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-   <item
-       android:id="@+id/arsiv"
-       android:title="Arşiv"
-       android:icon="@drawable/movieikon"
-       app:cnb_iconColor="#03A9F4"
-       />
+
     <item
-        android:id="@+id/anasayfa"
-        android:title="Ana Sayfa"
+        android:id="@+id/navArchive"
+        android:icon="@drawable/movieikon"
+        android:title="Favourites"
+        android:background="@color/blue_700"
+        app:cnb_iconColor="#03A9F4" />
+    <item
+        android:id="@+id/navHome"
         android:icon="@drawable/anasayfaikon"
-        app:cnb_iconColor="#F44336"
-        />
+        android:title="Home Page"
+        app:cnb_iconColor="#F44336" />
     <item
-        android:id="@+id/profil"
-        android:title="Profil"
+        android:id="@+id/navProfile"
         android:icon="@drawable/profilikon"
-        app:cnb_iconColor="#FF9800"
-        />
+        android:title="Profile"
+        app:cnb_iconColor="#FF9800" />
 
 
 

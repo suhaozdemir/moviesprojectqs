@@ -2,8 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="400dp"
+    android:layout_width="225dp"
+    android:layout_height="320dp"
+    android:background="@color/blue_700"
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -11,63 +12,40 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/user_fullname"
-        app:layout_constraintTop_toBottomOf="@+id/user_fullname">
+        app:layout_constraintBottom_toBottomOf="@+id/movieNameNow"
+        app:layout_constraintTop_toBottomOf="@+id/movieNameNow">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgNow"
             android:layout_width="200dp"
             android:layout_height="300dp"
             android:layout_weight="1.5"
             android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:shapeAppearanceOverlay="@style/radius_image_view"/>
 
 
         <TextView
             android:id="@+id/movieNameNow"
-            android:layout_width="113dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="22dp"
-            android:layout_marginBottom="54dp"
-            android:layout_weight="5"
-            android:text="user name"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgNow" />
 
-        <TextView
-            android:id="@+id/voteNow"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="53dp"
-            android:layout_weight="1"
-            android:text="TextView"
-            android:textSize="16sp"
+            android:layout_height="20dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="5"
+            android:fontFamily="@font/sfpregular"
+            android:text="user name"
+            android:textColor="@color/white"
+            android:textSize="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
+
+            app:layout_constraintEnd_toEndOf="@+id/imgNow"
+            app:layout_constraintStart_toStartOf="@+id/imgNow"
             app:layout_constraintTop_toBottomOf="@+id/imgNow" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="22dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="53dp"
-            android:layout_weight="1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/voteNow"
-            app:layout_constraintStart_toEndOf="@+id/movieNameNow"
-            app:layout_constraintTop_toBottomOf="@+id/imgNow"
-            app:srcCompat="@drawable/star" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

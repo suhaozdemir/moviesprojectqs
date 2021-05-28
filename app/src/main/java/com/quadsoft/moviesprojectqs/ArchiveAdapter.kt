@@ -5,10 +5,8 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.quadsoft.moviesprojectqs.model.Result
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_view.view.*
 
@@ -22,12 +20,12 @@ class ArchiveAdapter(private val movieList: ArrayList<UserMovies>) : RecyclerVie
     }
 
     override fun onBindViewHolder(holder: ArchiveViewHolder, position: Int) {
-        val currentmovie =movieList[position]
-        holder.movieName.text = currentmovie.name
-        holder.movieDetails.text = currentmovie.details
-        holder.movieRating.text = currentmovie.rating
+        val currentMovie =movieList[position]
+        holder.movieName.text = currentMovie.name
+       // holder.movieDetails.text = currentMovie.details
+        holder.movieRating.text = currentMovie.rating
 
-       val movieImgView = holder.itemView.user_avatar
+       val movieImgView = holder.itemView.iv_movieImage
 
         val imgPath = movieList.get(position).imgpath
 
@@ -35,16 +33,12 @@ class ArchiveAdapter(private val movieList: ArrayList<UserMovies>) : RecyclerVie
             .load(imgPath)
             .into(movieImgView)
 
-
-
         holder.itemView.setOnClickListener() {
-            val data2=movieList[position]
 
-
-            val movieName = data2.name
-            val movieRating = data2.rating
-            val movieDetails = data2.details
-            val movieImage = data2.imgpath
+            val movieName = currentMovie.name
+            val movieRating = currentMovie.rating
+            val movieDetails = currentMovie.details
+            val movieImage = currentMovie.imgpath
             val it_mDetails= Intent(context,DetailsActivity::class.java)
             it_mDetails.putExtra("it_movieName",movieName)
             it_mDetails.putExtra("it_movieRating",movieRating.toString())
@@ -62,10 +56,10 @@ class ArchiveAdapter(private val movieList: ArrayList<UserMovies>) : RecyclerVie
     }
 
     class ArchiveViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
-        val movieName : TextView = itemView.findViewById(R.id.user_fullname)
-        val movieRating : TextView = itemView.findViewById(R.id.vote_rateDetay)
-        val movieDetails : TextView = itemView.findViewById(R.id.aciklama)
-        val movieImage : ImageView = itemView.findViewById(R.id.user_avatar)
+        val movieName : TextView = itemView.findViewById(R.id.iv_movieName)
+        val movieRating : TextView = itemView.findViewById(R.id.iv_movieRating)
+        //val movieDetails : TextView = itemView.findViewById(R.id.iv_movieDetail)
+
     }
 
 }

@@ -1,5 +1,5 @@
 package com.quadsoft.moviesprojectqs
 
-//User sınıfı ve yapıcı constructor
-class User (var username:String, var email:String, var password:String){
+
+class User (var username:String?=null, var email:String?=null, var password:String?=null){
 }

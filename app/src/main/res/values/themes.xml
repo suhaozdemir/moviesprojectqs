@@ -13,4 +13,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="radius_image_view">
+        <item name="cornerSize">5%</item>
+    </style>
 </resources>

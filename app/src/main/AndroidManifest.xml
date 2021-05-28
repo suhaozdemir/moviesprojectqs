@@ -18,8 +18,8 @@
         <activity android:name=".EditProfileActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".activityProfile" />
-        <activity android:name=".arsivActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".ArchiveActivity" />
         <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -4,51 +4,114 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue_700"
     tools:context=".FirstActivity">
 
-    <Button
-        android:id="@+id/btnTopRated"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/MML"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="154dp"
-        android:onClick="btnClick"
-        android:text="Top Rated"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="72dp"
+        android:fontFamily="@font/sfpbold"
+        android:text="MyMovieList"
+        android:textColor="@color/white"
+        android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/MML5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:fontFamily="@font/sfpregular"
+        android:text="In Theaters"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/mmlIcon"
+        android:layout_width="52dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/MML"
+        app:layout_constraintEnd_toEndOf="@+id/MML"
+        app:layout_constraintStart_toStartOf="@+id/MML"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/mmlicon" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnTopRated"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
+        android:background="@color/transparent"
+        android:fontFamily="@font/sfpbold"
+        android:onClick="btnClick"
+
+        android:paddingBottom="5dp"
+        android:text="Top Rated \n Movies"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toStartOf="@+id/btnPopular"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnUpComing"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
+        android:background="@color/transparent"
+        android:fontFamily="@font/sfpbold"
         android:onClick="btnClick"
+        android:paddingBottom="5dp"
         android:text="Up Coming Movies"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnTopRated"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPopular" />
+        app:layout_constraintStart_toEndOf="@+id/btnPopular"
+        app:layout_constraintTop_toTopOf="@+id/btnTopRated" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnPopular"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
+        android:background="@color/transparent"
+        android:fontFamily="@font/sfpbold"
         android:onClick="btnClick"
-        android:text="Popular Movies"
+        android:paddingBottom="5dp"
+        android:text="Popular \nMovies"
+        android:textAllCaps="false"
+
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnTopRated" />
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="1dp"
         app:headerLayout="@layout/navigation_header"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnUpComing"
+        app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/navigation_menu">
 
 
@@ -57,8 +120,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnTopRated"
+        android:layout_height="320dp"
+        android:layout_marginTop="164dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

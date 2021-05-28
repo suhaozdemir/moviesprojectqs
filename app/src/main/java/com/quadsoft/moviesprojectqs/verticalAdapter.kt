@@ -25,14 +25,14 @@ class verticalAdapter (private val dataList2: MutableList<Result>) : RecyclerVie
 
         val imgVw = holder.itemView.imgNow
         val movienametxt = holder.itemView.movieNameNow
-        val movieratetxt = holder.itemView.voteNow
+        //val movieratetxt = holder.itemView.voteNow
 
         val name = "${data.title} "
         val vote = "${data.voteAverage} "
         val img = "https://image.tmdb.org/t/p/w500" + data.posterPath
 
         movienametxt.text = name
-        movieratetxt.text = vote
+       // movieratetxt.text = vote
 
         Picasso.get()
             .load(img)

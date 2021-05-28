@@ -65,13 +65,13 @@ class FirstActivity : AppCompatActivity() {
         nav_view.setOnNavigationItemSelectedListener{
 
             when(it.itemId){
-                R.id.arsiv -> {
-                    val intent = Intent(this,arsivActivity::class.java)
+                R.id.navArchive -> {
+                    val intent = Intent(this,ArchiveActivity::class.java)
                     startActivity(intent)
                     finish()
                 }
-                R.id.profil -> {
-                    val intent2 = Intent(this,activityProfile::class.java)
+                R.id.navProfile -> {
+                    val intent2 = Intent(this,ProfileActivity::class.java)
                     startActivity(intent2)
                     finish()
                 }
