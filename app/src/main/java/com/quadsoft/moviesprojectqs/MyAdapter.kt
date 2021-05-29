@@ -10,7 +10,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.quadsoft.moviesprojectqs.model.Result
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_details.*
+import kotlinx.android.synthetic.main.activity_details.view.*
 import kotlinx.android.synthetic.main.item_view.view.*
+
 
 class MyAdapter(private val dataList: MutableList<Result>) : RecyclerView.Adapter<MyAdapter.MyHolder>() {
     private lateinit var context : Context
@@ -24,21 +27,28 @@ class MyAdapter(private val dataList: MutableList<Result>) : RecyclerView.Adapte
         holder.movieName.text = currentMovie.title
        // holder.movieDetails.text = currentMovie.overview
         holder.movieRating.text = currentMovie.voteAverage.toString()
+
         val movieImgView = holder.itemView.iv_movieImage
         val imgPath = dataList.get(position).posterPath
+        val ratingBar = holder.itemView.ratingBar
 
         val image="https://image.tmdb.org/t/p/w500"+imgPath
+
+        val movieName = currentMovie.title
+        val movieRating = currentMovie.voteAverage
+        val movieDetails = currentMovie.overview
+        val movieImage = "https://image.tmdb.org/t/p/w500" + currentMovie.posterPath
+
+        val a = movieRating.toFloat()
+        ratingBar.rating = a / 2
 
         Picasso.get()
             .load(image)
             .into(movieImgView)
 
+
         holder.itemView.setOnClickListener() {
 
-            val movieName = currentMovie.title
-            val movieRating = currentMovie.voteAverage
-            val movieDetails = currentMovie.overview
-            val movieImage = "https://image.tmdb.org/t/p/w500" + currentMovie.posterPath
             val it_mDetails= Intent(context,DetailsActivity::class.java)
             it_mDetails.putExtra("it_movieName",movieName)
             it_mDetails.putExtra("it_movieRating",movieRating.toString())
@@ -50,6 +60,8 @@ class MyAdapter(private val dataList: MutableList<Result>) : RecyclerView.Adapte
 
     }
 
+
+
     override fun getItemCount(): Int =dataList.size
 
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -57,7 +69,5 @@ class MyAdapter(private val dataList: MutableList<Result>) : RecyclerView.Adapte
         val movieRating : TextView = itemView.findViewById(R.id.iv_movieRating)
         //val movieDetails : TextView = itemView.findViewById(R.id.iv_movieDetail)
     }
-
-
 
 }

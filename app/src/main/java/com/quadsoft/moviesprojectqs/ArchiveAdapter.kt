@@ -26,19 +26,24 @@ class ArchiveAdapter(private val movieList: ArrayList<UserMovies>) : RecyclerVie
         holder.movieRating.text = currentMovie.rating
 
        val movieImgView = holder.itemView.iv_movieImage
-
         val imgPath = movieList.get(position).imgpath
+        val ratingBar = holder.itemView.ratingBar
+        val movieName = currentMovie.name
+        val movieRating = currentMovie.rating
+        val movieDetails = currentMovie.details
+        val movieImage = currentMovie.imgpath
+
+        val a = movieRating!!.toFloat()
+        ratingBar.rating = a / 2
 
         Picasso.get()
             .load(imgPath)
             .into(movieImgView)
 
+
         holder.itemView.setOnClickListener() {
 
-            val movieName = currentMovie.name
-            val movieRating = currentMovie.rating
-            val movieDetails = currentMovie.details
-            val movieImage = currentMovie.imgpath
+
             val it_mDetails= Intent(context,DetailsActivity::class.java)
             it_mDetails.putExtra("it_movieName",movieName)
             it_mDetails.putExtra("it_movieRating",movieRating.toString())
