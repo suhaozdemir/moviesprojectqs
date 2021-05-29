@@ -1,9 +1,11 @@
 package com.quadsoft.moviesprojectqs
 
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -18,6 +20,8 @@ class EditProfileActivity : AppCompatActivity() {
 
     val reference = FirebaseDatabase.getInstance().getReference("Users")
         .child(FirebaseAuth.getInstance().currentUser!!.uid)
+    val reference2 = FirebaseDatabase.getInstance().getReference("Movies")
+        .child(FirebaseAuth.getInstance().currentUser!!.uid)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,26 +29,35 @@ class EditProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_edit_profile)
 
         auth = FirebaseAuth.getInstance()
+
         getuserData()
 
         bt_Update.setOnClickListener {
             if (txtNewPass.text.isEmpty()) {
-                Toast.makeText(this, "Please fill all empty", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please fill all empty fields!", Toast.LENGTH_SHORT).show()
             } else {
-                changePass()
+                updateDialog()
             }
         }
+
+        bt_Back.setOnClickListener{
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
+
+        bt_Delete.setOnClickListener{
+            deleteDialog()
+        }
+
     }
 
     private fun changePass() {
         val currentUser = auth.currentUser!!
-
         val credential = EmailAuthProvider
             .getCredential(currentUser.email!!, edtxt_Password.text.toString())
 
         val newPass = txtNewPass.text.toString()
-        val newMail = edtxt_Email.text
-        val newName = edtxt_Username.text
+        val newMail = edtxt_Email.text.toString()
+        val newName = edtxt_Username.text.toString()
 
         if(newPass.length < 6)
             Toast.makeText(this, "Password must be at least six characters", Toast.LENGTH_SHORT).show()
@@ -54,25 +67,23 @@ class EditProfileActivity : AppCompatActivity() {
             currentUser.reauthenticate(credential)
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
-                        currentUser!!.updatePassword(newPass.toString())
+                        currentUser!!.updatePassword(newPass)
                             ?.addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
-                                    currentUser!!.updateEmail(newMail.toString())
-                                    reference.child("email").setValue(newMail.toString())
-                                    reference.child("username").setValue(newName.toString())
-                                    reference.child("password").setValue(newPass.toString())
+                                    currentUser!!.updateEmail(newMail)
+                                    reference.child("email").setValue(newMail)
+                                    reference.child("username").setValue(newName)
+                                    reference.child("password").setValue(newPass)
                                     Toast.makeText(this,
                                         "Your information has been changed successfully.",
                                         Toast.LENGTH_SHORT).show()
                                     auth.signOut()
-                                    val intent = Intent(this, HomeActivity::class.java)
-                                    startActivity(intent)
+                                    startActivity(Intent(this, HomeActivity::class.java))
                                     finish()
-                                }
+                                }else
+                                    Toast.makeText(this, "Error! Please try again later.", Toast.LENGTH_SHORT).show()
                             }
                     }
-
-
                 }}
     }
 
@@ -81,4 +92,63 @@ class EditProfileActivity : AppCompatActivity() {
         edtxt_Email.setText(intent.getStringExtra("email"))
         edtxt_Password.setText(intent.getStringExtra("password"))
     }
+
+    fun deleteAccount(){
+        val currentUser = auth.currentUser!!
+        val credential = EmailAuthProvider
+            .getCredential(currentUser.email!!, edtxt_Password.text.toString())
+
+        currentUser.reauthenticate(credential)
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    currentUser!!.delete()
+                        ?.addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+                                reference.removeValue()
+                                reference2.removeValue()
+                                Toast.makeText(this, "Your Account Has Been Deleted", Toast.LENGTH_SHORT).show()
+                                auth.signOut()
+                                startActivity(Intent(this, HomeActivity::class.java))
+                                finish()
+                            }else{
+                                Toast.makeText(this, "Error! Please try again later.", Toast.LENGTH_SHORT).show()
+                                startActivity(Intent(this, ProfileActivity::class.java))
+                            }
+                        }
+                }
+            }
+    }
+
+    fun deleteDialog(){
+        val alert = AlertDialog.Builder(this)
+        alert.setTitle("Warning")
+        alert.setMessage("Are you sure you want to delete your account?")
+        alert.setPositiveButton("Yes",
+            DialogInterface.OnClickListener { dialog, id ->
+                deleteAccount()
+            })
+            .setNegativeButton("No",
+                DialogInterface.OnClickListener { dialog, id ->
+
+                })
+
+        alert.create().show()
+    }
+
+    fun updateDialog(){
+        val alert = AlertDialog.Builder(this)
+        alert.setTitle("Warning")
+        alert.setMessage("Are you sure you want to update your account information?")
+        alert.setPositiveButton("Yes",
+            DialogInterface.OnClickListener { dialog, id ->
+                changePass()
+            })
+            .setNegativeButton("No",
+                DialogInterface.OnClickListener { dialog, id ->
+
+                })
+
+        alert.create().show()
+    }
 }
+

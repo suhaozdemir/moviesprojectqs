@@ -54,7 +54,6 @@
         android:layout_marginBottom="24dp"
         android:background="@drawable/button"
         android:fontFamily="@font/sfpregular"
-        android:onClick="registerFun"
         android:text="Create Account"
         android:textAllCaps="false"
         android:textColor="@color/purple"

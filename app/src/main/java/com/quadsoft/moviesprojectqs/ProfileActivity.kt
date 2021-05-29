@@ -32,6 +32,7 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
+
     private fun getuserData(){
 
         reference.addValueEventListener(object : ValueEventListener {

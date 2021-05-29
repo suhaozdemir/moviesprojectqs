@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.app.NotificationCompat
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -18,7 +19,6 @@ class HomeActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        //---------GİRİŞ YAPMIŞ VE LOGOUT YAPMAYAN KULLANICI---------
         val currentUser = auth.currentUser
         if(currentUser != null){
             val intent = Intent(this,FirstActivity::class.java)
@@ -27,16 +27,22 @@ class HomeActivity : AppCompatActivity() {
             finish()
         }
 
-        //Registera dönüş
+        btnLogin.setOnClickListener {
+        if (txtEmail.text.isEmpty() || txtPassword.text.isEmpty())
+            Toast.makeText(this, "Please fill al empty fields", Toast.LENGTH_SHORT).show()
+        else
+            loginFun()
+        }
+
+
         btnSignUp.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, RegisterActivity::class.java))
             finish()
         }
     }
 
-    //---------GİRİŞ İŞLEMLERİ---------
-    fun loginFun(view : View){
+
+    fun loginFun(){
         val email = txtEmail.text.toString()
         val password = txtPassword.text.toString()
 
@@ -45,7 +51,6 @@ class HomeActivity : AppCompatActivity() {
 
                 val loggedUser = auth.currentUser?.email.toString()
                 Toast.makeText(this, "Welcome ${loggedUser}",Toast.LENGTH_LONG).show()
-                //progressBar.visibility = View.VISIBLE
                 val intent = Intent(this,FirstActivity::class.java)
                 startActivity(intent)
                 finish()
