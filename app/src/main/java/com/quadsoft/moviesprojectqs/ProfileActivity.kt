@@ -30,6 +30,10 @@ class ProfileActivity : AppCompatActivity() {
         bt_EditProfile.setOnClickListener{
             editProfile()
         }
+
+        bt_Logout.setOnClickListener {
+            logout()
+        }
     }
 
 
@@ -40,7 +44,6 @@ class ProfileActivity : AppCompatActivity() {
                 val username = snapshot.child("username").getValue().toString()
                 val email = snapshot.child("email").getValue().toString()
                 val password = snapshot.child("password").getValue().toString()
-                txt_Name.setText(username)
                 txtv_Name.setText(username)
                 txt_Email.setText(email)
                 txt_Password.setText(password)
@@ -53,33 +56,20 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun editProfile(){
         val it_uData = Intent(this,EditProfileActivity::class.java)
-        it_uData.putExtra("username",txt_Name.text)
+        it_uData.putExtra("username",txtv_Name.text)
         it_uData.putExtra("email",txt_Email.text)
         it_uData.putExtra("password",txt_Password.text)
         startActivity(it_uData)
     }
 
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val menuInflater = menuInflater
-        menuInflater.inflate(R.menu.options_menu,menu)
-        return super.onCreateOptionsMenu(menu)
+    private fun logout(){
+        auth.signOut()
+        startActivity(Intent(this, HomeActivity::class.java))
+        finish()
+        Toast.makeText(this,"Come back again soon!",Toast.LENGTH_LONG).show()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.logout){
-            auth.signOut()
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
-            finish()
-            Toast.makeText(this,"Başarıyla Çıkış Yapıldı",Toast.LENGTH_LONG).show()
-        }else if(item.itemId == R.id.editProfile){
-            val intent = Intent(this,EditProfileActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-        return super.onOptionsItemSelected(item)
-    }
+
 
     private fun bottomBarsetup() {
         nav_view.setOnNavigationItemSelectedListener{

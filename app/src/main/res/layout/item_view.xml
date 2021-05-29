@@ -50,7 +50,7 @@
             android:stepSize="0.1"
             app:layout_constraintBottom_toBottomOf="@+id/iv_movieImage"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.672"
             app:layout_constraintStart_toStartOf="@+id/iv_movieImage" />
 
         <TextView
@@ -75,19 +75,18 @@
             android:id="@+id/iv_movieRating"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="84dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
             android:fontFamily="@font/sfpregular"
             android:text="10"
-            android:textColor="@color/white"
-            android:textSize="14dp"
+            android:textColor="#FFC107"
+            android:textSize="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/iv_movieName"
+            app:layout_constraintHorizontal_bias="0.062"
+            app:layout_constraintStart_toEndOf="@+id/iv_movieImage"
             app:layout_constraintTop_toTopOf="@+id/ratingBar"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintVertical_bias="0.326" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/resimurl"

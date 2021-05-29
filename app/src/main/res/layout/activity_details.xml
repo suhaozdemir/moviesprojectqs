@@ -8,95 +8,125 @@
     tools:context=".DetailsActivity">
 
     <ImageView
-        android:id="@+id/img_dImage"
-        android:layout_width="408dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="11dp"
-        app:layout_constraintBottom_toTopOf="@+id/txt_dName"
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/moviecard"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.49" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/img_dImage"
+        android:layout_width="140dp"
+        android:layout_height="210dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/txt_dName"
-        android:layout_width="270dp"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="26dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:text="Movie Name"
+        android:textColor="@color/white"
+        android:fontFamily="@font/sfpregular"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/txt_dDetail"
-        app:layout_constraintEnd_toStartOf="@+id/txt_dRating"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_dImage" />
+        app:layout_constraintBottom_toTopOf="@+id/ratingBar2"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toEndOf="@+id/img_dImage"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/txt_dRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="314dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
         android:layout_weight="1"
         android:text="0,0"
-        android:textSize="27sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txt_dName"
+        android:textColor="#FFC107"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ratingBar2"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/img_dImage"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.25" />
 
-    <ImageView
-        android:id="@+id/imageViewDetay"
-        android:layout_width="35dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="315dp"
-        android:layout_weight="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txt_dRating"
-        app:layout_constraintStart_toEndOf="@+id/txt_dName"
-        app:layout_constraintTop_toBottomOf="@+id/img_dImage"
-        app:srcCompat="@drawable/star" />
+    <RatingBar
+        android:id="@+id/ratingBar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:progressTint="#FFC107"
+        android:secondaryProgressTint="@color/transparent"
+        android:stepSize="0.1"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHorizontal_bias="0.254"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/img_dImage" />
 
     <TextView
         android:id="@+id/txt_dDetail"
-        android:layout_width="370dp"
-        android:layout_height="220dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="320dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
         android:text="Movie Details"
-        app:layout_constraintBottom_toTopOf="@+id/btRemove"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_dRating" />
+        android:textColor="@color/white"
+        android:fontFamily="@font/sfpregular"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar2" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btRemove"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="18dp"
-        android:layout_marginBottom="15dp"
+        android:background="@drawable/btnsave"
+        android:fontFamily="@font/sfpregular"
+        android:paddingBottom="5dp"
         android:text="Remove"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btFavourite" />
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="@+id/txt_dDetail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txt_dDetail"
+        app:layout_constraintTop_toBottomOf="@+id/txt_dDetail" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btFavourite"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/btnsave"
+        android:fontFamily="@font/sfpregular"
+        android:paddingBottom="5dp"
         android:text="Add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/txt_dDetail" />
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="@+id/txt_dDetail"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/btRemove"
+        app:layout_constraintTop_toBottomOf="@+id/txt_dDetail" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

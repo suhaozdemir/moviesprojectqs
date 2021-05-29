@@ -7,23 +7,23 @@
     android:background="@drawable/bgprofilesettings"
     tools:context=".EditProfileActivity">
 
+
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:src="@drawable/settingscard"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/statscard"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/edtxt_Email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:background="@drawable/txtcard"
         android:ems="10"
         android:fontFamily="@font/sfpregular"
@@ -32,33 +32,43 @@
         android:inputType="textEmailAddress"
         android:paddingStart="10dp"
         android:textColor="@color/blue_700"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/edtxt_Username" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/statscard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
         android:id="@+id/edtxt_Password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="72dp"
         android:background="@drawable/txtcard"
         android:ems="10"
+        android:focusable="false"
         android:fontFamily="@font/sfpregular"
         android:hint="Password"
-        android:focusable="false"
         android:paddingStart="10dp"
         android:textColor="@color/blue_700"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/edtxt_Email" />
-
-
+        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
     <EditText
         android:id="@+id/edtxt_Username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="64dp"
         android:background="@drawable/txtcard"
         android:ems="10"
         android:fontFamily="@font/sfpregular"
@@ -74,33 +84,31 @@
         android:id="@+id/bt_Update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:background="@drawable/btnsave"
+        android:fontFamily="@font/sfpbold"
+        android:paddingBottom="5dp"
         android:text="Update"
         android:textColor="@color/white"
         android:textSize="18dp"
-        android:fontFamily="@font/sfpbold"
-        android:paddingBottom="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/txtNewPass" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/sfpbold"
         android:text="Profile Settings"
         android:textColor="@color/white"
-        android:fontFamily="@font/sfpbold"
         android:textSize="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtNewPass"
@@ -119,11 +127,11 @@
 
     <Button
         android:id="@+id/bt_Back"
-        android:paddingStart="-10dp"
         android:layout_width="116dp"
         android:layout_height="46dp"
         android:background="@color/transparent"
         android:fontFamily="@font/sfpregular"
+        android:paddingStart="-10dp"
         android:text="Back"
         android:textAllCaps="false"
         android:textColor="@color/white"
@@ -135,22 +143,54 @@
 
     <Button
         android:id="@+id/bt_Delete"
-        android:layout_width="160dp"
+        android:layout_width="180dp"
         android:layout_height="46dp"
         android:background="@color/transparent"
         android:fontFamily="@font/sfpregular"
-        android:paddingStart="-10dp"
-        android:text="Delete Account"
+        android:text="Delete Your Account"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.92"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bt_Update"
-        app:layout_constraintVertical_bias="0.995" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/sfpregular"
+        android:text="Username and Email"
+        android:textColor="@color/blue_700"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/edtxt_Username"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/sfpregular"
+        android:text="Password"
+        android:textColor="@color/blue_700"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/edtxt_Password"
+        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
