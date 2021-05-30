@@ -3,6 +3,9 @@ package com.quadsoft.moviesprojectqs
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -10,6 +13,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_details.*
+import kotlinx.android.synthetic.main.check_internet_dialog.view.*
 
 val reference = FirebaseDatabase.getInstance().getReference("Movies")
     .child(FirebaseAuth.getInstance().currentUser!!.uid)
@@ -18,6 +22,8 @@ class DetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
+
+        checkConnection()
 
         btRemove.isEnabled = false
 
@@ -101,6 +107,25 @@ class DetailsActivity : AppCompatActivity() {
 
             override fun onCancelled(error: DatabaseError) {
 
+            }
+        })
+    }
+    fun checkConnection(){
+        val wifiDialog = LayoutInflater.from(this).inflate(R.layout.check_internet_dialog,null)
+        val builder = AlertDialog.Builder(this,R.style.DialogTheme)
+            .setView(wifiDialog)
+        val alert = builder.create()
+        val networkConnection = NetworkConnection(applicationContext)
+
+        networkConnection.observe(this, androidx.lifecycle.Observer  { isConnected ->
+            if (!isConnected) {
+                alert.show()
+            }
+            wifiDialog.btnRetry.setOnClickListener {
+                if (isConnected){
+                    alert.dismiss()
+                }else
+                    Toast.makeText(this, "Please check your Internet connection.", Toast.LENGTH_SHORT).show()
             }
         })
     }

@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.EmailAuthProvider
@@ -13,6 +14,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_edit_profile.*
+import kotlinx.android.synthetic.main.check_internet_dialog.view.*
 
 class EditProfileActivity : AppCompatActivity() {
 
@@ -27,6 +29,8 @@ class EditProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
+
+        checkConnection()
 
         auth = FirebaseAuth.getInstance()
 
@@ -149,6 +153,26 @@ class EditProfileActivity : AppCompatActivity() {
                 })
 
         alert.create().show()
+    }
+
+    fun checkConnection(){
+        val wifiDialog = LayoutInflater.from(this).inflate(R.layout.check_internet_dialog,null)
+        val builder = AlertDialog.Builder(this,R.style.DialogTheme)
+            .setView(wifiDialog)
+        val alert = builder.create()
+        val networkConnection = NetworkConnection(applicationContext)
+
+        networkConnection.observe(this, androidx.lifecycle.Observer  { isConnected ->
+            if (!isConnected) {
+                alert.show()
+            }
+            wifiDialog.btnRetry.setOnClickListener {
+                if (isConnected){
+                    alert.dismiss()
+                }else
+                    Toast.makeText(this, "Please check your Internet connection.", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }
 
