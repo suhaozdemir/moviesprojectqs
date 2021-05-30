@@ -75,12 +75,12 @@ class FirstActivity : AppCompatActivity() {
                 R.id.navArchive -> {
                     val intent = Intent(this,ArchiveActivity::class.java)
                     startActivity(intent)
-                    finish()
+
                 }
                 R.id.navProfile -> {
                     val intent2 = Intent(this,ProfileActivity::class.java)
                     startActivity(intent2)
-                    finish()
+
                 }
             }
             true

@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     val dataList: MutableList<Result> = mutableListOf()
 
+    private lateinit var auth: FirebaseAuth
     lateinit var myAdapter: MyAdapter
 
 
@@ -48,25 +49,29 @@ class MainActivity : AppCompatActivity() {
         my_recycler_view.addItemDecoration(DividerItemDecoration(this, OrientationHelper.VERTICAL))
         my_recycler_view.adapter = myAdapter
 
-        val urlLink = intent.getStringExtra("Key")
+        //for(i in 1..3) {
+            val urlLink = intent.getStringExtra("Key")
 
-        AndroidNetworking.initialize(this)
-        AndroidNetworking.get(urlLink)
-            .build()
-            .getAsObject(Req::class.java, object : ParsedRequestListener<Req> {
-                override fun onResponse(response: Req?) {
-                    if (response != null) {
-                        dataList.addAll(response.results)
+            AndroidNetworking.initialize(this)
+            AndroidNetworking.get(urlLink)
+                .build()
+                .getAsObject(Req::class.java, object : ParsedRequestListener<Req> {
+                    override fun onResponse(response: Req?) {
+                        if (response != null) {
+                            dataList.addAll(response.results)
 
+
+                        }
+                        myAdapter.notifyDataSetChanged()
                     }
-                    myAdapter.notifyDataSetChanged()
-                }
 
-                override fun onError(anError: ANError?) {
-                }
+                    override fun onError(anError: ANError?) {
+                    }
 
 
-            })
+                })
+        //}
+
     }
 
     fun checkConnection(){

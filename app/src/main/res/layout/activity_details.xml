@@ -41,7 +41,7 @@
         android:textColor="@color/white"
         android:fontFamily="@font/sfpregular"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/ratingBar2"
+        app:layout_constraintBottom_toTopOf="@+id/d_ratingBar"
         app:layout_constraintEnd_toEndOf="@+id/imageView4"
         app:layout_constraintStart_toEndOf="@+id/img_dImage"
         app:layout_constraintTop_toTopOf="@+id/imageView4"
@@ -57,23 +57,23 @@
         android:text="0,0"
         android:textColor="#FFC107"
         android:textSize="24dp"
-        app:layout_constraintBottom_toBottomOf="@+id/ratingBar2"
+        app:layout_constraintBottom_toBottomOf="@+id/d_ratingBar"
         app:layout_constraintStart_toStartOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/img_dImage"
         app:layout_constraintVertical_bias="0.25" />
 
     <RatingBar
-        android:id="@+id/ratingBar2"
+        android:id="@+id/d_ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleX="0.7"
-        android:scaleY="0.7"
         android:clickable="false"
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:isIndicator="true"
         android:numStars="5"
         android:progressTint="#FFC107"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
         android:secondaryProgressTint="@color/transparent"
         android:stepSize="0.1"
         app:layout_constraintEnd_toEndOf="@+id/imageView4"
@@ -84,14 +84,15 @@
     <TextView
         android:id="@+id/txt_dDetail"
         android:layout_width="320dp"
-        android:layout_height="200dp"
+        android:layout_height="220dp"
         android:layout_marginTop="16dp"
         android:text="Movie Details"
+        android:textSize="16.5sp"
         android:textColor="@color/white"
         android:fontFamily="@font/sfpregular"
         app:layout_constraintEnd_toEndOf="@+id/imageView4"
         app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/ratingBar2" />
+        app:layout_constraintTop_toBottomOf="@+id/d_ratingBar" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btRemove"

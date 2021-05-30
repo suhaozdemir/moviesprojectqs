@@ -80,6 +80,11 @@ class DetailsActivity : AppCompatActivity() {
         txt_dRating.text = intent.getStringExtra("it_movieRating")
         txt_dDetail.text = intent.getStringExtra("it_movieDetail")
 
+        val rating = txt_dRating.text.toString()
+        val a = rating.toFloat()
+
+        d_ratingBar.rating = a/2
+
         val imagePath = intent.getStringExtra("it_movieImage")
         Picasso.get()
             .load(imagePath)
