@@ -57,16 +57,11 @@ class ArchiveActivity : AppCompatActivity() {
                     }
                     archiveRecycler.adapter = ArchiveAdapter(movieArrayList)
                 }
-            }
 
+            }
             override fun onCancelled(error: DatabaseError) {
-
             }
-
-
         })
-
-
    }
     private fun bottomBarsetup() {
         nav_view.setOnNavigationItemSelectedListener{
@@ -82,7 +77,6 @@ class ArchiveActivity : AppCompatActivity() {
                 }
             }
             true
-
         }
     }
     fun checkConnection(){

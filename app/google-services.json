@@ -1,63 +1,33 @@
 {
   "project_info": {
-    "project_number": "855000821106",
-    "firebase_url": "https://moviesprojectqs-default-rtdb.firebaseio.com",
-    "project_id": "moviesprojectqs",
-    "storage_bucket": "moviesprojectqs.appspot.com"
+    "project_number": "242681695376",
+    "project_id": "moviesprojectqs-b85c3",
+    "storage_bucket": "moviesprojectqs-b85c3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:855000821106:android:69445c03098ba86bcc81eb",
+        "mobilesdk_app_id": "1:242681695376:android:c058c3d8a2c973c426dc15",
         "android_client_info": {
           "package_name": "com.quadsoft.moviesprojectqs"
         }
       },
       "oauth_client": [
         {
-          "client_id": "855000821106-fh29onab3ctrm3tvmcmnj38lifnvq5t3.apps.googleusercontent.com",
+          "client_id": "242681695376-orocetmospp7lsdt4nsdssedgt7bbfm8.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDK96j3cZt0CQDyPvTCMDG6gr2dMEBLADo"
+          "current_key": "AIzaSyA3mWLIkGhfO8-RuGcS5RvfOm62L7qidRY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "855000821106-fh29onab3ctrm3tvmcmnj38lifnvq5t3.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:855000821106:android:0786242b8ea1e1bccc81eb",
-        "android_client_info": {
-          "package_name": "com.example.moviesprojectqs"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "855000821106-fh29onab3ctrm3tvmcmnj38lifnvq5t3.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDK96j3cZt0CQDyPvTCMDG6gr2dMEBLADo"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "855000821106-fh29onab3ctrm3tvmcmnj38lifnvq5t3.apps.googleusercontent.com",
+              "client_id": "242681695376-orocetmospp7lsdt4nsdssedgt7bbfm8.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

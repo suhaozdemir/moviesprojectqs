@@ -119,7 +119,7 @@
         android:background="@drawable/btnsave"
         android:fontFamily="@font/sfpregular"
         android:paddingBottom="5dp"
-        android:text="Add"
+        android:text="Add Favorite"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="18dp"

@@ -27,8 +27,8 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profile)
 
         checkConnection()
-
         auth = FirebaseAuth.getInstance()
+
             bottomBarsetup()
             getuserData()
 

@@ -26,15 +26,14 @@ class HomeActivity : AppCompatActivity() {
 
         val currentUser = auth.currentUser
         if(currentUser != null){
-            val intent = Intent(this,FirstActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this,FirstActivity::class.java))
             Toast.makeText(this, "Welcome ${currentUser.email.toString()}",Toast.LENGTH_LONG).show()
             finish()
         }
 
         btnLogin.setOnClickListener {
         if (txtEmail.text.isEmpty() || txtPassword.text.isEmpty())
-            Toast.makeText(this, "Please fill al empty fields", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Please fill all empty fields!", Toast.LENGTH_SHORT).show()
         else
             loginFun()
         }
@@ -56,8 +55,7 @@ class HomeActivity : AppCompatActivity() {
 
                 val loggedUser = auth.currentUser?.email.toString()
                 Toast.makeText(this, "Welcome ${loggedUser}",Toast.LENGTH_LONG).show()
-                val intent = Intent(this,FirstActivity::class.java)
-                startActivity(intent)
+                startActivity(Intent(this,FirstActivity::class.java))
                 finish()
             }
         }.addOnFailureListener{exception ->

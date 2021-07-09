@@ -65,8 +65,7 @@ class RegisterActivity : AppCompatActivity() {
                     .child(FirebaseAuth.getInstance().currentUser!!.uid)
                     .setValue(user)
                 notification()
-                val intent = Intent(this,HomeActivity::class.java)
-                startActivity(intent)
+                startActivity(Intent(this,FirstActivity::class.java))
                 finish()
             }
         }.addOnFailureListener{exception ->

@@ -20,8 +20,8 @@ import kotlinx.android.synthetic.main.activity_first.*
 import kotlinx.android.synthetic.main.check_internet_dialog.view.*
 
 class FirstActivity : AppCompatActivity() {
-    private val dataList2: MutableList<Result> = mutableListOf()
 
+    private val dataList2: MutableList<Result> = mutableListOf()
     private lateinit var myAdapter: verticalAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +37,7 @@ class FirstActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL ,false)
         recyclerView.adapter = myAdapter
 
-        val urlLink = "https://api.themoviedb.org/3/movie/now_playing?api_key=9cb322b1006fcfd1800a689018e6a7d4&page=%22+i"
+        val urlLink = "https://api.themoviedb.org/3/movie/now_playing?api_key=9cb322b1006fcfd1800a689018e6a7d4&page=%22"
 
         AndroidNetworking.initialize(this)
         AndroidNetworking.get(urlLink)
@@ -57,12 +57,6 @@ class FirstActivity : AppCompatActivity() {
                 }
 
             })
-
-
-
-
-
-
         bottomBarsetup()
 
     }
@@ -75,16 +69,13 @@ class FirstActivity : AppCompatActivity() {
                 R.id.navArchive -> {
                     val intent = Intent(this,ArchiveActivity::class.java)
                     startActivity(intent)
-
                 }
                 R.id.navProfile -> {
                     val intent2 = Intent(this,ProfileActivity::class.java)
                     startActivity(intent2)
-
                 }
             }
             true
-
         }
     }
     fun btnClick(view: View){

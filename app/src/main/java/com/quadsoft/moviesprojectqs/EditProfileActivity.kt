@@ -25,7 +25,6 @@ class EditProfileActivity : AppCompatActivity() {
     val reference2 = FirebaseDatabase.getInstance().getReference("Movies")
         .child(FirebaseAuth.getInstance().currentUser!!.uid)
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
@@ -141,7 +140,7 @@ class EditProfileActivity : AppCompatActivity() {
 
     fun updateDialog(){
         val alert = AlertDialog.Builder(this)
-        alert.setTitle("Warning")
+        alert.setTitle("Warning!")
         alert.setMessage("Are you sure you want to update your account information?")
         alert.setPositiveButton("Yes",
             DialogInterface.OnClickListener { dialog, id ->

@@ -37,7 +37,7 @@ class DetailsActivity : AppCompatActivity() {
         btRemove.setOnClickListener{
             deleteMovie()
             btFavourite.isEnabled = true
-            btFavourite.setText("Add Favorıte")
+            btFavourite.setText("Add Favorite")
             btRemove.isEnabled = false
         }
 
@@ -103,7 +103,7 @@ class DetailsActivity : AppCompatActivity() {
                      tempName = snapshot.key
 
                 if(name == tempName){
-                    btFavourite.setText("Favorıte")
+                    btFavourite.setText("In Favorite")
                     btFavourite.isEnabled=false
                     btRemove.isEnabled = true
                 }
