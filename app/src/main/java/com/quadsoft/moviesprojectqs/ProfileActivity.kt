@@ -20,7 +20,7 @@ class ProfileActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     val reference = FirebaseDatabase.getInstance().getReference("Users")
-        .child(FirebaseAuth.getInstance().currentUser!!.uid)
+            .child(FirebaseAuth.getInstance().currentUser!!.uid)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -96,7 +96,7 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
-    fun checkConnection(){
+    private fun checkConnection(){
         val wifiDialog = LayoutInflater.from(this).inflate(R.layout.check_internet_dialog,null)
         val builder = AlertDialog.Builder(this,R.style.DialogTheme)
             .setView(wifiDialog)

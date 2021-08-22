@@ -79,7 +79,7 @@ class FirstActivity : AppCompatActivity() {
         }
     }
     fun btnClick(view: View){
-        var btnSec = view as Button
+        val btnSec = view as Button
         when(btnSec.id){
             btnTopRated.id->{
                 val topratedLink="https://api.themoviedb.org/3/movie/top_rated?api_key=9cb322b1006fcfd1800a689018e6a7d4&page=1"
@@ -103,7 +103,7 @@ class FirstActivity : AppCompatActivity() {
         }
     }
 
-    fun checkConnection(){
+    private fun checkConnection(){
         val wifiDialog = LayoutInflater.from(this).inflate(R.layout.check_internet_dialog,null)
         val builder = AlertDialog.Builder(this,R.style.DialogTheme)
             .setView(wifiDialog)

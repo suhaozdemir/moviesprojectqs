@@ -115,7 +115,7 @@ class DetailsActivity : AppCompatActivity() {
             }
         })
     }
-    fun checkConnection(){
+    private fun checkConnection(){
         val wifiDialog = LayoutInflater.from(this).inflate(R.layout.check_internet_dialog,null)
         val builder = AlertDialog.Builder(this,R.style.DialogTheme)
             .setView(wifiDialog)
