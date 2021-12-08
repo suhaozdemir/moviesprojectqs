@@ -7,7 +7,11 @@
 
 # Used Technologies
 -Kotlin
+<br>
 -TMDB API
+<br>
 -Retrofit
+<br>
 -GSON
+<br>
 -Firebase Realtime Database
